@@ -47,9 +47,9 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mContext = this
-        enableEdgeToEdge()
+        //让应用内容延伸到系统栏（状态栏和导航栏）下方，创建沉浸式体验
+     //   enableEdgeToEdge()
         setContent {
-            //  Day01Theme {
             Surface(
                 Modifier
                     .padding(0.dp, 25.dp, 0.dp, 0.dp)
@@ -57,7 +57,6 @@ class MainActivity : ComponentActivity() {
             ) {
                 Conversation(getMessageList())
             }
-            //       }
         }
     }
 }
@@ -80,7 +79,7 @@ fun getMessageList(): List<Message> {
 
 @Composable
 fun Conversation(list: List<Message>) {
-    // CustView(null)‘
+    // CustView(null)
     //维护选中状态:存储当前选中的 Message 的 id，初始为空 (没有选中)
     var selectedItemId by remember { mutableStateOf<String?>(null) }
     LazyColumn {
